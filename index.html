@@ -2,39 +2,38 @@
 <html>
   <head>
     <link rel="stylesheet" type="text/css" href="style.css">
-    
-    <script type="text/javascript">
 
-      function createRequestObject() {
+    <script type="text/javascript">
+        function createRequestObject() {
           var obj;
           var browser = navigator.appName;
           if (browser == "Microsoft Internet Explorer") {
             obj = new ActiveXObject("Microsoft.XMLHTTP");
           }
-          
+
           else {
               obj = new XMLHttpRequest();
           }
           return obj;
-      }
-      
-      function sendRequest(req) {   
+        }
+
+        function sendRequest(req) {
           var http = createRequestObject();
           http.open('get', req);
           http.onreadystatechange = handleResponse;
           http.send(null);
-      }
-      
-      function handleResponse() {    
+        }
+
+        function handleResponse() {
           if (http.readyState == 4) {
               var response = http.responseText;
               document.getElementById('Main').innerHTML=response;
           }
-      }
-      
-       sendReq('/resume');
-//previously </script> was not visible
-</script>
+        }
+
+        sendRequest('/resume');
+       </script>
+
   </head>
   <body>
     <div id="Headder">
@@ -42,7 +41,7 @@
       <div id="Resumee"> </div>
       <div id="Projects"> </div>
     </div>
-    
-    <div id="Main"> </div>
+
+    <div id="Main"> Oi</div>
   </body>
 </html>
