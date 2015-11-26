@@ -4,8 +4,9 @@ Body{
 }
 #Main{
   background: #FFF;
-  border-radius: 2pt;
+  border-radius: 3pt;
   margin:50pt auto auto auto;
+  padding: 2.29cm 2.41cm 2.54cm 2.41cm;
   width: 21cm;
 
 }
