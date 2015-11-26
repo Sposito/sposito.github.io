@@ -1,8 +1,12 @@
 Body{
   font-family:"Helvetica", serif;
+  background: #99CADC;
 }
-#ThiagoSposito{
-  background: #EEE;
+#Main{
+  background: #FFF;
+  border-radius: 2pt;
+  margin:50pt auto auto auto;
+
 }
 
 #Headder{
