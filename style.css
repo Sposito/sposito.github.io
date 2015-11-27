@@ -15,6 +15,10 @@ Body {
 #contact {
   color: #7F7F7F;
 }
+
+h1{
+  font-size: 36pt;
+}
 h2:before {
   content: '';
   display: block;
