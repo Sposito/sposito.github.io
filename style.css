@@ -1,16 +1,49 @@
-Body{
-  font-family:"Helvetica", serif;
+Body {
+  font-family: "Helvetica", serif;
+  color: #111;
   background: #99CADC;
+  line-height: 150%;
 }
-#Main{
+#main {
   background: #FFF;
   border-radius: 3pt;
-  margin:50pt auto auto auto;
+  margin: 50pt auto auto auto;
   padding: 2.29cm 2.41cm 2.54cm 2.41cm;
   width: 21cm;
-
+  height: 297mm;
+}
+#contact {
+  color: #7F7F7F;
+}
+h2:before {
+  content: '';
+  display: block;
+  border: 1.5px solid black;
+  margin-bottom: 3pt;
+}
+h2:after {
+  content: '';
+  display: block;
+  border: 1px solid black;
+  margin-top: 3pt;
 }
 
-#Headder{
+/*Bullets */
+ul {
+    list-style: none;
+    padding:0;
+    margin:0;
+}
+
+li {
+    padding-left: 1em;
+    text-indent: -.7em;
+}
+
+li:before {
+    content: "\25c6  ";
+    color: #99CADC;
+}
+#Headder {
   background: #FFF;
 }
