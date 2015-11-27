@@ -11,13 +11,15 @@ Body {
   padding: 2.29cm 2.41cm 2.54cm 2.41cm;
   width: 21cm;
   height: 297mm;
+  animation-name: deBluring;
+  animation-duration: 1s;
 }
 #contact {
   color: #7F7F7F;
 }
-
-h1{
-  font-size: 36pt;
+h1 {
+  font-size: 40pt;
+  text-transform: uppercase;
 }
 h2:before {
   content: '';
@@ -33,21 +35,30 @@ h2:after {
 }
 
 /*Bullets */
+
 ul {
-    list-style: none;
-    padding:0;
-    margin:0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
-
 li {
-    padding-left: 1em;
-    text-indent: -.7em;
+  padding-left: 1em;
+  text-indent: -.7em;
 }
-
 li:before {
-    content: "\25c6  ";
-    color: #99CADC;
+  content: "\25c6  ";
+  color: #99CADC;
 }
 #Headder {
   background: #FFF;
+}
+@keyframes deBluring {
+  from {
+    -webkit-filter: blur(100px);
+    filter: blur(100px);
+  }
+  to {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+  }
 }
