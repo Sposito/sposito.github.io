@@ -4,6 +4,10 @@ Body {
   background: #99CADC;
   line-height: 150%;
 }
+ul li {
+  padding: 5px 0px; 
+}
+
 #main {
   background: #FFF;
   border-radius: 3pt;
