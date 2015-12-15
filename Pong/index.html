@@ -1,0 +1,93 @@
+<html>
+<canvas id="gameCanvas" width="800" height="600"> </canvas>
+<script>
+  var canvas;
+  var canvasContex;
+
+  var ballX = 50;
+  var ballY = 300;
+  var ballSpeedY = 10;
+  var ballSpeedX =  3;
+
+  var leftPaddleY = 300;
+  var rightPaddleY = 300;
+  var rightPaddleSpeed = 1;
+  var rightPaddleDown = true;
+
+  window.onload = function() {
+    canvas = document.getElementById('gameCanvas');
+    canvasContext = canvas.getContext('2d');
+
+    setInterval(update, 1000 / 30); // Set FPS
+
+  }
+
+  function update() {
+    moveBall();
+
+    moveRightPaddle();
+    drawFrame();
+  }
+
+  function moveRightPaddle() {
+
+    console.log(rightPaddleY);
+    if (rightPaddleY <= 600 && rightPaddleDown) {
+      rightPaddleY += rightPaddleSpeed;
+    }
+
+    else if (rightPaddleY >= 0 && !rightPaddleDown) {
+      rightPaddleY -= rightPaddleSpeed;
+    }
+
+    else if(rightPaddleY >= 600){
+      rightPaddleY = 600;
+      rightPaddleDown = false;
+    }
+
+    else if(rightPaddleY <= 0){
+      rightPaddleY = 0;
+      rightPaddleDown = true;
+    }
+
+  }
+
+  function moveBall(){
+    ballX += ballSpeedX;
+    ballY += ballSpeedY;
+
+    if(ballX < 0)
+      ballSpeedX *= -1;
+    if(ballX > canvas.width)
+      ballSpeedX *= -1;
+    if(ballY < 0)
+      ballSpeedY *= -1;
+    if(ballY > canvas.height)
+      ballSpeedY *= -1;
+  }
+  function drawCircle(centerX, centerY, radius, color){
+    canvasContext.fillStyle = color;
+    canvasContext.beginPath();
+    canvasContext.arc(centerX, centerY, radius, 0, Math.PI * 2, true);
+    canvasContext.fill();
+  }
+  function drawFrame() {
+
+    //BackGround
+    canvasContext.fillStyle = 'black';
+    canvasContext.fillRect(0, 0, canvas.width, canvas.height);
+
+    //Left Paddle
+    canvasContext.fillStyle = 'white';
+    canvasContext.fillRect(0, leftPaddleY, 10, 100);
+
+    //Right Paddle
+    canvasContext.fillStyle = 'white';
+    canvasContext.fillRect(790, rightPaddleY, 10, 100);
+
+    //Draw the ball
+    drawCircle(ballX, ballY, 10, 'white');
+  }
+</script>
+
+</html>
