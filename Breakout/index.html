@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Breakout 3D</title>
+    <style>
+        body{
+            background-color: white;
+        }
+        #canvas {
+            padding-left: 0;
+            padding-right: 0;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            padding-top: 0;
+            padding-bottom: 0;
+            margin-top: auto;
+            margin-bottom: auto;
+            display: block;
+            width: 800px;
+            height: 600px;
+            border-radius: 20px;
+            
+            
+        }
+    </style>
+  </head>
+  <body>
+    <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" height="600px" width="800"></canvas>
+    <script type='text/javascript'>
+  var Module = {
+    TOTAL_MEMORY: 268435456,
+    errorhandler: null,			// arguments: err, url, line. This function must return 'true' if the error is handled, otherwise 'false'
+    compatibilitycheck: null,
+    dataUrl: "Release/breakout.data",
+    codeUrl: "Release/breakout.js",
+    memUrl: "Release/breakout.mem",
+  };
+</script>
+<script src="Release/UnityLoader.js"></script>
+
+  </body>
+</html>
