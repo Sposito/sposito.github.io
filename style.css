@@ -1,6 +1,6 @@
 Body {
   font-family: "Helvetica", serif;
-  color: #111;
+  color: #04002f;
   background: #99CADC;
   line-height: 150%;
 }
@@ -24,18 +24,26 @@ ul li {
 h1 {
   font-size: 40pt;
   text-transform: uppercase;
+  color: #04002f;
+}
+
+h2{
+    color: #04002f;;
 }
 h2:before {
   content: '';
   display: block;
   border: 1.5px solid black;
   margin-bottom: 3pt;
+  border-color: #04002f;
+  
 }
 h2:after {
   content: '';
   display: block;
   border: 1px solid black;
   margin-top: 3pt;
+  border-color: #04002f;
 }
 
 /*Bullets */
