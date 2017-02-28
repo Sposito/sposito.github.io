@@ -17,6 +17,9 @@ ul li {
   height: 297mm;
   animation-name: deBluring;
   animation-duration: 1s;
+  
+  transform: rotate(5deg);
+  transform-origin: top left;
 }
 
 #about {
@@ -28,6 +31,9 @@ ul li {
   height: 297mm;
   animation-name: deBluring;
   animation-duration: 1s;
+  
+  transform: rotate(-4deg);
+  transform-origin: top left;
 }
 
 #contact {
