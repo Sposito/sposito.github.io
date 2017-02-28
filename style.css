@@ -18,7 +18,7 @@ ul li {
   animation-name: deBluring;
   animation-duration: 1s;
   
-  transform: rotate(2deg);
+  transform: rotate(.2deg);
   transform-origin: top left;
 }
 
@@ -32,7 +32,7 @@ ul li {
   animation-name: deBluring;
   animation-duration: 1s;
   
-  transform: rotate(-1deg);
+  transform: rotate(-.3deg);
   transform-origin: top left;
 }
 
