@@ -18,7 +18,7 @@ ul li {
   animation-name: deBluring;
   animation-duration: 1s;
   
-  transform: rotate(5deg);
+  transform: rotate(2deg);
   transform-origin: top left;
 }
 
@@ -32,7 +32,7 @@ ul li {
   animation-name: deBluring;
   animation-duration: 1s;
   
-  transform: rotate(-4deg);
+  transform: rotate(-1deg);
   transform-origin: top left;
 }
 
@@ -95,4 +95,6 @@ a{
     -webkit-filter: blur(0px);
     filter: blur(0px);
   }
+}
+
 }
