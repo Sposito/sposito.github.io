@@ -5,7 +5,8 @@
   <link rel="stylesheet" type="text/css" href="style.css">
 
   <script type="text/javascript">
-    sendRequest('/resume.html');
+    sendRequest('/resume.html', 'main');
+    sendRequest('/about.html', 'about');
 
     function createRequestObject() {
       var obj;
@@ -18,7 +19,7 @@
       return obj;
     }
 
-    function sendRequest(req) {
+    function sendRequest(req, divId) {
       var http = createRequestObject();
       http.open('get', req);
       http.onreadystatechange = handleResponse;
@@ -27,7 +28,7 @@
       function handleResponse() {
         if (http.readyState == 4) {
           var response = http.responseText;
-          document.getElementById('main').innerHTML = response;
+          document.getElementById(divId).innerHTML = response;
         }
       }
     }
