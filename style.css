@@ -39,8 +39,8 @@ ul li {
 #avatar{
     border-radius: 512pt;
     float: right;
-    height: 50%;
-    width: 50%;
+    height: 200px;
+    width: 200px;
 }
 
 #aboutMe{
