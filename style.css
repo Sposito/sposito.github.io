@@ -28,7 +28,7 @@ ul li {
   margin: 50pt auto auto auto;
   padding: 2.29cm 2.41cm 2.54cm 2.41cm;
   width: 21cm;
-  height: 297mm;
+  height: 297/4mm;
   animation-name: deBluring;
   animation-duration: 1s;
   
