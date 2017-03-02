@@ -36,6 +36,16 @@ ul li {
   transform-origin: top left;
 }
 
+#avatar{
+border-radius: 512pt;
+float: right;
+}
+
+#aboutMe{
+  font-family: "Helvetica", serif;
+  padding: 20pt 130pt 0pt 50pt;
+}
+
 #contact {
   color: #7F7F7F;
 }
