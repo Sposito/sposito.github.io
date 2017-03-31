@@ -1,7 +1,12 @@
 Body {
   font-family: "Helvetica", serif;
   color: #04002f;
-  background: #99CADC;
+  
+   background: #7CBC6F; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(left, #7CBC6F, #55AEA1); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(left, #7CBC6F, #55AEA1); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(left, #7CBC6F, #55AEA1); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(left, #7CBC6F, #55AEA1); /* Standard syntax */
   line-height: 150%;
 }
 ul li {
@@ -9,9 +14,10 @@ ul li {
 }
 
 #main {
-  background: #FFF;
+  background: #1A2A1D;
+  color: #fff;
   border-radius: 3pt;
-  margin: 50pt auto auto auto;
+  margin: 50pt auto 3cm auto;
   padding: 2.29cm 2.41cm 2.54cm 2.41cm;
   width: 21cm;
   height: 297mm;
@@ -23,12 +29,13 @@ ul li {
 }
 
 #about {
-  background: #FFF;
+  background: #1A2A1D;
+  color: #fff;
   border-radius: 3pt;
   margin: 50pt auto auto auto;
-  padding: 2.29cm 2.41cm 2.54cm 2.41cm;
+  padding: .3cm 1cm 2.54cm 1cm;
   width: 21cm;
-  height: 297/4mm;
+  height: 50mm;
   animation-name: deBluring;
   animation-duration: 1s;
   
@@ -37,43 +44,55 @@ ul li {
 }
 
 #avatar{
-    border-radius: 512pt;
+    border-radius: 260px;
     float: right;
-    height: 200px;
-    width: 200px;
+    height: 7cm;
+    width: 7cm;
+
+    position: absolute;
+    right: .1cm;
+
+  
 }
 
 #aboutMe{
   font-family: "Helvetica", serif;
-  padding: 10pt 10pt 10pt 10pt;
+  width: 20cm;
+  
+}
+
+#about-text{
+  font-family: "Helvetica", serif;
+  width: 15cm;
+ 
 }
 
 #contact {
-  color: #7F7F7F;
+  color: #DDD;
 }
 h1 {
   font-size: 40pt;
   text-transform: uppercase;
-  color: #04002f;
+  color: #CAECE5;
 }
 
 h2{
-    color: #04002f;;
+    color: #CAECE5;
 }
 h2:before {
   content: '';
   display: block;
-  border: 1.5px solid black;
+  border: 1.5px solid #CAECE5;
   margin-bottom: 3pt;
-  border-color: #04002f;
+  border-color: #CAECE5;
   
 }
 h2:after {
   content: '';
   display: block;
-  border: 1px solid black;
+  border: 1px solid #CAECE5;
   margin-top: 3pt;
-  border-color: #04002f;
+  border-color: #CAECE5;
 }
 
 /*Bullets */
@@ -89,24 +108,25 @@ li {
 }
 li:before {
   content: "\25c6  ";
-  color: #99CADC;
+  color: #CAECE5;
 }
 
 a{
-  color: #04002f;
+  color: #CAECE5;
 }
 #Headder {
   background: #FFF;
 }
+
 @keyframes deBluring {
   from {
     -webkit-filter: blur(100px);
     filter: blur(100px);
   }
+
   to {
     -webkit-filter: blur(0px);
     filter: blur(0px);
   }
-}
 
 }
