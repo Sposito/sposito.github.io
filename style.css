@@ -2,12 +2,11 @@ Body {
   font-family: "Helvetica", serif;
   color: #04002f;
   
-   background: #7CBC6F; /* For browsers that do not support gradients */
-    background: -webkit-linear-gradient(left, #7CBC6F, #55AEA1); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(left, #7CBC6F, #55AEA1); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(left, #7CBC6F, #55AEA1); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(left, #7CBC6F, #55AEA1); /* Standard syntax */
+  background: linear-gradient(53deg, #7cbc6f, #55aea1);
   line-height: 150%;
+  -webkit-animation: AnimationName 6s ease infinite;
+  -moz-animation: AnimationName 6s ease infinite;
+  animation: AnimationName 6s ease infinite;
 }
 ul li {
   padding: 2px 0px; 
@@ -129,4 +128,20 @@ a{
     filter: blur(0px);
   }
 
+}
+
+@-webkit-keyframes AnimationName {
+    0%{background-position:0% 63%}
+    50%{background-position:100% 38%}
+    100%{background-position:0% 63%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:0% 63%}
+    50%{background-position:100% 38%}
+    100%{background-position:0% 63%}
+}
+@keyframes AnimationName { 
+    0%{background-position:0% 63%}
+    50%{background-position:100% 38%}
+    100%{background-position:0% 63%}
 }
