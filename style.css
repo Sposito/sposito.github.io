@@ -27,6 +27,21 @@ ul li {
   transform-origin: top left;
 }
 
+#showcase {
+  background: #1A2A1D;
+  color: #fff;
+  border-radius: 3pt;
+  margin: 50pt auto 3cm auto;
+  padding: 25px;
+  width: 950px;
+  /* height: 600px; */
+  animation-name: deBluring;
+  animation-duration: 1s;
+  
+  transform: rotate(.2deg);
+  transform-origin: top left;
+}
+
 #about {
   background: #1A2A1D;
   color: #fff;
