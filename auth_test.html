@@ -5,7 +5,10 @@
     <title>Github.js Example</title>
   </head>
   <body>
-    <button id="login-btn">Login with GitHub</button>
+    <div id="header">
+      <span id="username"></span>
+      <button id="logout-btn">Log out</button>
+    </div>
     <div id="repo-list"></div>
     <script src="https://cdn.jsdelivr.net/npm/@octokit/core@4.2.0/dist-node/index.js"></script>
     <script>
@@ -13,7 +16,8 @@
       const redirectUri = 'https://sposito.github.io/auth_test.html';
       const scope = 'repo';
 
-      const loginBtn = document.getElementById('login-btn');
+      const usernameElem = document.getElementById('username');
+      const logoutBtn = document.getElementById('logout-btn');
       const repoList = document.getElementById('repo-list');
 
       function authorizeUser() {
@@ -34,7 +38,7 @@
           return;
         }
 
-        fetch(`https://github.com/login/oauth/access_token?client_id=${clientId}&client_secret=${clientSecret}&code=${code}&redirect_uri=${redirectUri}`, {
+        fetch(`https://github.com/login/oauth/access_token?client_id=${clientId}&code=${code}&redirect_uri=${redirectUri}`, {
           method: 'POST',
           headers: {
             'Accept': 'application/json'
@@ -43,6 +47,9 @@
           const token = data.access_token;
           const octokit = new Octokit({
             auth: token
+          });
+          octokit.request('GET /user').then(({ data }) => {
+            usernameElem.textContent = data.login;
           });
           octokit.request('GET /user/repos').then(({ data }) => {
             repoList.innerHTML = '';
@@ -64,12 +71,35 @@
         return result;
       }
 
+      function handleLogout() {
+        localStorage.clear();
+        window.location.reload();
+      }
+
       if (window.location.search.includes('code')) {
         handleAuthorizationResponse();
       } else {
-        loginBtn.addEventListener('click', authorizeUser);
+        const token = localStorage.getItem('access_token');
+        if (token) {
+          const octokit = new Octokit({
+            auth: token
+          });
+          octokit.request('GET /user').then(({ data }) => {
+            usernameElem.textContent = data.login;
+          });
+          octokit.request('GET /user/repos').then(({ data }) => {
+            repoList.innerHTML = '';
+            data.forEach(repo => {
+              const li = document.createElement('li');
+              li.textContent = repo.full_name;
+              repoList.appendChild(li);
+            });
+          });
+        } else {
+          authorizeUser();
+        }
+        logoutBtn.addEventListener('click', handleLogout);
       }
     </script>
   </body>
 </html>
-
