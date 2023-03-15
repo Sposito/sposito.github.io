@@ -7,24 +7,44 @@
   <body>
     <button id="login-btn">Login with GitHub</button>
     <div id="repo-list"></div>
-    <script src="https://cdn.jsdelivr.net/npm/@octokit/rest@17.2.0/dist/octokit.rest.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/github-login@1.1.0/dist/github-login.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@octokit/core@4.2.0/dist-node/index.js"></script>
     <script>
-      const githubLogin = new GithubLogin({
-        clientId: '14ad7c88e69bf1db4ee0',
-        redirectUri: 'https://sposito.github.io/auth_test.html',
-        scope: 'repo',
-      });
+      const clientId = '14ad7c88e69bf1db4ee0';
+      const redirectUri = 'https://sposito.github.io/auth_test.html';
+      const scope = 'repo';
 
       const loginBtn = document.getElementById('login-btn');
       const repoList = document.getElementById('repo-list');
 
-      loginBtn.addEventListener('click', () => {
-        githubLogin.login().then(token => {
+      function authorizeUser() {
+        const state = generateRandomString(32);
+        localStorage.setItem('state', state);
+
+        const url = `https://github.com/login/oauth/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&state=${state}&scope=${scope}`;
+        window.location.href = url;
+      }
+
+      function handleAuthorizationResponse() {
+        const queryParams = new URLSearchParams(window.location.search);
+        const code = queryParams.get('code');
+        const state = queryParams.get('state');
+
+        if (localStorage.getItem('state') !== state) {
+          console.error('Invalid state.');
+          return;
+        }
+
+        fetch(`https://github.com/login/oauth/access_token?client_id=${clientId}&client_secret=${clientSecret}&code=${code}&redirect_uri=${redirectUri}`, {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json'
+          }
+        }).then(response => response.json()).then(data => {
+          const token = data.access_token;
           const octokit = new Octokit({
-            auth: token,
+            auth: token
           });
-          octokit.repos.list().then(({ data }) => {
+          octokit.request('GET /user/repos').then(({ data }) => {
             repoList.innerHTML = '';
             data.forEach(repo => {
               const li = document.createElement('li');
@@ -33,7 +53,23 @@
             });
           });
         });
-      });
+      }
+
+      function generateRandomString(length) {
+        const chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+        let result = '';
+        for (let i = 0; i < length; i++) {
+          result += chars.charAt(Math.floor(Math.random() * chars.length));
+        }
+        return result;
+      }
+
+      if (window.location.search.includes('code')) {
+        handleAuthorizationResponse();
+      } else {
+        loginBtn.addEventListener('click', authorizeUser);
+      }
     </script>
   </body>
 </html>
+
