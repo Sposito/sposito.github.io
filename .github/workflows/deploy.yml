@@ -21,13 +21,6 @@ jobs:
     - name: Run Lua script to generate HTML and CSS
       run: luajit src/gen.lua
 
-
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v4
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./
-
     - name: Commit and push generated files
       run: |
         git config --global user.name 'GitHub Actions'
