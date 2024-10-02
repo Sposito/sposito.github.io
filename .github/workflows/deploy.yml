@@ -1,4 +1,4 @@
-name: Deploy my Static Page
+name: generate-static-page-lua
 
 on:
   push:
@@ -16,7 +16,7 @@ jobs:
     - name: Set up LuaJit
       uses: leafo/gh-actions-lua@v10
       with:
-        luaVersion: 'luajit'
+        luaVersion: "luajit-openresty"
 
     - name: Run Lua script to generate HTML and CSS
       run: luajit src/gen.lua
