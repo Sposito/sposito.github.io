@@ -13,10 +13,10 @@ jobs:
     - name: Checkout the repository
       uses: actions/checkout@v2
 
-    - name: Set up Lua 5.1
+    - name: Set up LuaJit
       uses: leafo/gh-actions-lua@v10
       with:
-        lua-version: 'luajit'
+        luaVersion: 'luajit'
 
     - name: Run Lua script to generate HTML and CSS
       run: luajit src/gen.lua
